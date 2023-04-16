@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sign in | Manager</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+   </head>
+<body>
+  <div class="wrapper">
+    <h2>Sign in</h2>
+    <form action="signin" method="post">
+      {% csrf_token %}
+     
+      <div class="input-box">
+        <input type="text" name="username" placeholder="username" required>
+      </div>
+      <div class="input-box">
+        <input type="password" name="password" placeholder="password" required>
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Sign into your account">
+      </div>
+      <div class="text">
+        <h3>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></h3>
+      </div>
+      <div>
+        {% for message in messages %}
+        <h3> {{message}} </h3>
+        {% endfor %}
+      </div>
+    </form>
+  </div>
+
+ 
+
+</body>
+</html>
